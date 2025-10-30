@@ -292,7 +292,7 @@ VALUES (001, 'Sarah Parker', 'Manager', 'HR', 60000);
 ```
 
 **Output:**  
-![Output 10]<img width="1501" height="198" alt="image" src="https://github.com/user-attachments/assets/dee164fb-2820-4c96-891b-72b49a95cb9c" />
+<img width="1501" height="198" alt="image" src="https://github.com/user-attachments/assets/dee164fb-2820-4c96-891b-72b49a95cb9c" />
 
 
 ---
