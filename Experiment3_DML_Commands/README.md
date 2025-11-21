@@ -114,15 +114,19 @@ WHERE unit = 'LB';
 
 **Question 5**
 ---
--- Paste Question 5 here
+-- Write the SQL query that accomplishes the grouping of data by joining date (jdate), calculates the total work hours for each date, and excludes dates where the total work hour sum is not greater than 40.
 
 ```sql
--- Paste your SQL code below for Question 5
+-- SELECT jdate, SUM(workhour)
+FROM employee1
+GROUP BY jdate
+HAVING SUM(workhour) > 40;
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="654" height="376" alt="image" src="https://github.com/user-attachments/assets/5a8aeea7-c99e-4827-ada1-40be42500326" />
+
 
 **Question 6**
 ---
@@ -172,7 +176,8 @@ ord_no      purch_amt   ord_date    customer_id  salesman_id
 
 **Output:**
 
-![Output7](output.png)
+<img width="533" height="381" alt="image" src="https://github.com/user-attachments/assets/055abdf3-6222-4683-ba58-f3bdb4c3b78d" />
+
 
 **Question 8**
 ---
