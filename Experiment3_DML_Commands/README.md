@@ -47,51 +47,70 @@ SELECT column1, column2 FROM table_name WHERE condition;
 ```
 **Question 1**
 --
--- Paste Question 1 here
+-- What is the most common time slot for appointments for each doctor?
 
 ```sql
--- Paste your SQL code below for Question 1
+-- SELECT DoctorID, TimeSlot, COUNT(*) AS TotalAppointments
+FROM Appointments
+GROUP BY DoctorID, TimeSlot
+HAVING COUNT(*) = (
+    SELECT MAX(COUNT(*))
+    FROM Appointments AS A2
+    WHERE A2.DoctorID = Appointments.DoctorID
+    GROUP BY A2.TimeSlot
+);
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="379" height="233" alt="image" src="https://github.com/user-attachments/assets/356851f9-59ed-4355-a375-c34995a141b1" />
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+-- How many patients are there in each city?
 
 ```sql
--- Paste your SQL code below for Question 2
+-- SELECT Address, COUNT(*) AS TotalPatients
+FROM Patients
+GROUP BY Address;
+
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="1197" height="405" alt="image" src="https://github.com/user-attachments/assets/e5b9f486-f6f8-4860-8735-217e1fcd50ac" />
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+-- How many patients are covered by each insurance company?
 
 ```sql
--- Paste your SQL code below for Question 3
+-- SELECT InsuranceCompany, COUNT(DISTINCT PatientID) AS TotalPatients
+FROM Insurance
+GROUP BY InsuranceCompany;
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="820" height="658" alt="image" src="https://github.com/user-attachments/assets/7b965e43-0957-4405-a194-6091672d7a32" />
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+-- Write a SQL query to find the total amount of fruits with a unit type of 'LB'.
 
 ```sql
--- Paste your SQL code below for Question 4
+-- SELECT SUM(inventory) AS total
+FROM fruits
+WHERE unit = 'LB';
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="574" height="306" alt="image" src="https://github.com/user-attachments/assets/f4f6ec6f-587c-4de2-b711-46ac57bb8ae7" />
+
 
 **Question 5**
 ---
@@ -107,19 +126,45 @@ SELECT column1, column2 FROM table_name WHERE condition;
 
 **Question 6**
 ---
--- Paste Question 6 here
+-- Write a SQL query to calculate the average purchase amount of all orders. Return average purchase amount.
+
+Sample table: orders
+
+ord_no      purch_amt   ord_date    customer_id  salesman_id
+
+----------  ----------  ----------  -----------  -----------
+
+70001       150.5       2012-10-05  3005         5002
+
+70009       270.65      2012-09-10  3001         5005
+
+70002       65.26       2012-10-05  3002         5001
 
 ```sql
--- Paste your SQL code below for Question 6
+-- SELECT AVG(purch_amt) AS AVERAGE
+FROM orders;
 ```
 
 **Output:**
 
-![Output6](output.png)
+-<img width="665" height="299" alt="image" src="https://github.com/user-attachments/assets/e22f0134-404a-42c0-aa0d-ed0900699263" />
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+-- Write a SQL query to find the minimum purchase amount.
+
+Sample table: orders
+
+ord_no      purch_amt   ord_date    customer_id  salesman_id
+
+----------  ----------  ----------  -----------  -----------
+
+70001       150.5       2012-10-05  3005         5002
+
+70009       270.65      2012-09-10  3001         5005
+
+70002       65.26       2012-10-05  3002         5001
 
 ```sql
 -- Paste your SQL code below for Question 7
@@ -134,36 +179,46 @@ SELECT column1, column2 FROM table_name WHERE condition;
 -- Paste Question 8 here
 
 ```sql
--- Paste your SQL code below for Question 8
+-- SELECT MIN(purch_amt) AS MINIMUM
+FROM orders;
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="477" height="304" alt="image" src="https://github.com/user-attachments/assets/c08eac1f-84f9-4e6b-9294-98b228c271ea" />
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+-- Write the SQL query that accomplishes the selection of product which has lowest price in each category from the "products" table and includes only those products where the minimum price is less than 10.
 
 ```sql
--- Paste your SQL code below for Question 9
+-- SELECT category_id, MIN(price) AS Price
+FROM products
+GROUP BY category_id
+HAVING MIN(price) < 10;
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="776" height="508" alt="image" src="https://github.com/user-attachments/assets/b530b6ef-7bb8-452e-94d2-0d8effaa62ca" />
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+-- Write the SQL query that accomplishes the selection of total number of products for each category from the "products" table, and includes only those products where the minimum category ID is less than 3.
 
 ```sql
--- Paste your SQL code below for Question 10
+-- SELECT category_id, count(product_name)
+FROM products
+WHERE category_id < 3
+GROUP BY category_id;
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="759" height="358" alt="image" src="https://github.com/user-attachments/assets/fd902d57-d3ff-40b4-b68c-decb862d8adb" />
+
 
 ## RESULT
 Thus, the SQL queries to implement DML commands have been executed successfully.
